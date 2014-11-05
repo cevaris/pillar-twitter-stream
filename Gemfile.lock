@@ -69,6 +69,7 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    unicode_utils (1.4.0)
 
 PLATFORMS
   ruby
@@ -78,3 +79,4 @@ DEPENDENCIES
   cassandra (~> 0.23.0)
   pillar!
   tweetstream (~> 2.6.1)
+  unicode_utils

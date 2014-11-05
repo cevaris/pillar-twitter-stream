@@ -23,7 +23,7 @@ def filter(payload)
 
   $logger.debug "Filtering #{payload}"
 
-  payload
+  [true, false].sample ? payload : nil
   
 end
 
@@ -35,7 +35,9 @@ def execute
        
     filtered = filter(payload)
 
-    rmq[:exchange].publish(filtered, :persistent => true, :routing_key => rmq[:queue_out].name)
+    if filtered
+      rmq[:exchange].publish(filtered, :persistent => true, :routing_key => rmq[:queue_out].name)
+    end
 
     rmq[:channel].acknowledge(delivery_info.delivery_tag, false)
   end
