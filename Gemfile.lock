@@ -8,7 +8,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
+    amq-protocol (1.9.2)
     buftok (0.2.0)
+    bunny (1.6.0)
+      amq-protocol (>= 1.9.2)
     cassandra (0.23.0)
       json
       rake
@@ -71,6 +74,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cassandra
+  bunny (~> 1.6.0)
+  cassandra (~> 0.23.0)
   pillar!
-  tweetstream
+  tweetstream (~> 2.6.1)

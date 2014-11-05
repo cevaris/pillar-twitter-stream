@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'pillar', git: 'https://github.com/cevaris/pillar'
-gem 'tweetstream'
-gem 'cassandra'
+gem 'tweetstream', '~> 2.6.1'
+gem 'cassandra', '~> 0.23.0'
+gem 'bunny', '~> 1.6.0'
