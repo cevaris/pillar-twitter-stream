@@ -17,6 +17,7 @@ GEM
       rake
       simple_uuid (~> 0.3)
       thrift_client (~> 0.7, < 0.9)
+    connection_pool (2.0.0)
     cookiejar (0.3.2)
     daemons (1.1.9)
     em-http-request (1.1.2)
@@ -77,6 +78,7 @@ PLATFORMS
 DEPENDENCIES
   bunny (~> 1.6.0)
   cassandra (~> 0.23.0)
+  connection_pool
   pillar!
   tweetstream (~> 2.6.1)
-  unicode_utils
+  unicode_utils (~> 1.4.0)

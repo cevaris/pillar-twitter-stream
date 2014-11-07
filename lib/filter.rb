@@ -5,6 +5,7 @@ require 'json'
 require "bunny"
 
 $logger = Logger.new('/tmp/tweet-stream.log')
+TERMS   = ENV['FILTER_TERMS'].split(':')
 
 def bunny_client
   rmq = Bunny.new
@@ -20,11 +21,8 @@ end
 
 
 def filter(payload)
-
-  $logger.debug "Filtering #{payload}"
-
-  [true, false].sample ? payload : nil
-  
+  # If a term is found, pass it along
+  TERMS.select {|t| payload.include? t}.empty? ? nil : payload
 end
 
 
