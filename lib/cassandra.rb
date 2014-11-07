@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require 'cassandra'
 require 'logger'
 require 'json'
@@ -10,9 +11,7 @@ CASSANDRA_KEY= ENV['CASSANDRA_KEY']
 CASSANDRA_CF = ENV['CASSANDRA_CF']
 RMQ_INBOUND  = ENV['RMQ_INBOUND']
 
-$cass = ConnectionPool::Wrapper.new(size: 5, timeout: 5) { 
-  client = Cassandra.new(CASSANDRA_KEY, '127.0.0.1:9160')
-}
+$cass = ConnectionPool::Wrapper.new(size: 5, timeout: 5) { Cassandra.new(CASSANDRA_KEY, '127.0.0.1:9160') }
 
 $logger = Logger.new('/tmp/tweet-stream.log')
 

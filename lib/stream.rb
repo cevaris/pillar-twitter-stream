@@ -3,7 +3,7 @@
 require 'tweetstream'
 require 'logger'
 require 'json'
-require "bunny"
+require 'bunny'
 
 $logger = Logger.new('/tmp/tweet-stream.log')
 TERMS   = ENV['FILTER_TERMS'].split(':')
@@ -34,7 +34,6 @@ def stream
     $logger.error "Time to next tweet:#{timeout.inspect} Retries:#{retries.inspect}"
   end.on_error do |message|
     $logger.error "Error message message.inspect"
-  # end.sample(language: 'en') do |status|
   end.track(*TERMS, language: 'en') do |status|
     rmq[:exchange].publish(JSON.generate(status.to_h), :routing_key => rmq[:queue].name)
   end

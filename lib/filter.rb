@@ -2,7 +2,7 @@
 
 require 'logger'
 require 'json'
-require "bunny"
+require 'bunny'
 
 $logger = Logger.new('/tmp/tweet-stream.log')
 TERMS   = ENV['FILTER_TERMS'].split(':')
