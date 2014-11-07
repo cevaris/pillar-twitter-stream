@@ -21,8 +21,7 @@ end
 
 
 def filter(payload)
-  # If a term is found, pass it along
-  TERMS.select {|t| payload.include? t}.empty? ? nil : payload
+  TERMS.select {|t| payload.match /#{t}/i }.empty? ? nil : payload
 end
 
 
