@@ -1,4 +1,6 @@
 rmq-twitter-stream
 ==================
 
-Twitter streaming example via Pillar gem
+Twitter streaming example via RabbitMQ.
+
+
